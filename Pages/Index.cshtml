@@ -1,0 +1,53 @@
+﻿@page 
+@model IndexModel
+@using Fibratek.Data
+@using Fibratek.Models
+@using Fibratek.UI.Controls
+@using Fibratek.UI.Controls.Utils;
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Консоль визуализации</h1>
+    <p>Текущий статус системы: @SessionSettings.State</p>
+    
+    @if (SessionSettings.State == StateMode.Stopped || SessionSettings.State == StateMode.Paused)
+    {
+        <form method="GET">
+            <input type="hidden" name="action" value="CONTROL"/>
+            <input type="hidden" name="args" value="ON"/>
+            <input type="submit" class="btn btn-primary" value="Запустить инспекцию"/>
+        </form>
+    }
+    </br>
+    @if (SessionSettings.State == StateMode.Running || SessionSettings.State == StateMode.Resumed)
+    {
+    <form method="GET">
+        <input type="hidden" name="action" value="CONTROL"/>
+        <input type="hidden" name="args" value="PAUSE"/>
+        <input type="submit" class="btn btn-warning" value="Приостановить инспекцию"/>
+    </form>
+    }
+    </br>
+    @if (SessionSettings.State == StateMode.Running || SessionSettings.State == StateMode.Resumed || SessionSettings.State == StateMode.Paused)
+    {
+    <form method="GET">
+        <input type="hidden" name="action" value="CONTROL"/>
+        <input type="hidden" name="args" value="OFF"/>
+        <input type="submit" class="btn btn-danger" value="Остановить инспекцию"/>
+    </form>
+
+
+
+    }
+
+    <h1> Основные замеры</h1>
+    @foreach (var i in SessionSettings.Values)
+    {
+        <h3>Датчик № @(SessionSettings.Values.IndexOf(i)+1)</h3>
+        <p>Значение: @i.Last()</p>
+        <br />
+    }
+
+</div>

@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Web\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.16" />
+    <PackageReference Include="OpenCvSharp4" Version="4.9.0.20240103" />
+    <PackageReference Include="OpenCvSharp4.Extensions" Version="4.9.0.20240103" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.9.0.20240103" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.IO.Ports" Version="7.0.0" />
+    <PackageReference Include="System.Management" Version="7.0.2" />
+    <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MvCameraControl.Net">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MVS\Development\DotNet\AnyCpu\MvCameraControl.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
